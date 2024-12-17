@@ -13,4 +13,4 @@ class PatientForm(forms.ModelForm):
         model = Patient
         # Les champs seront affichés dans le formulaire dans l'ordre de cette liste
         fields = ['name', 'date_of_birth', 'contact_info', 'basic_medical_history']
-        # Ne pas inclure 'verified_by_admin' ici afin qu'il ne puisse être défini que par l'administrateur.
+        # Ne pas inclure 'verified_by_admin' ici afin qu'il ne puisse être défini que par l'administrateur dans l'interface admin.
