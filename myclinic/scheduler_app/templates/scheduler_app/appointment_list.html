@@ -2,10 +2,18 @@
 <html>
 <head>
     <title>Appointments</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <style>
+        .appointment-list li {
+            padding: 15px 10px; /* More vertical padding */
+            margin-bottom: 15px; /* More space between appointments */
+        }
+    </style>
 </head>
 <body>
     <h1>Appointment List</h1>
-    <ul>
+    <ul class="appointment-list">
     {% for appointment in appointments %}
         <li>
             {{ appointment.patient.name }} - {{ appointment.date }} {{ appointment.time }} with Dr. {{ appointment.doctor_name }}

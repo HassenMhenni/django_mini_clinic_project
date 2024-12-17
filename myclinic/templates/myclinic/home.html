@@ -2,13 +2,17 @@
 <html>
 <head>
     <title>MyClinic Home</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <h1>Welcome to MyClinic</h1>
-    <ul>
-        <li><a href="{% url 'patient_list' %}">Patient List</a></li>
-        <li><a href="{% url 'appointment_list' %}">Appointment List</a></li>
-        <li><a href="{% url 'admin:index' %}">Admin Login</a></li>
-    </ul>
+    <div class="home-nav">
+        <ul>
+            <li><a href="{% url 'patient_list' %}">Patient List</a></li>
+            <li><a href="{% url 'appointment_list' %}">Appointment List</a></li>
+            <li><a href="{% url 'admin:index' %}">Admin Login</a></li>
+        </ul>
+    </div>
 </body>
 </html>

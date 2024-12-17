@@ -2,6 +2,14 @@
 <html>
 <head>
     <title>Patients</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <style>
+        .patient-list li a {
+            display: block; /* Make the whole list item clickable */
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
     <h1>Patient List</h1>
@@ -9,10 +17,10 @@
         <input type="text" name="q" value="{{ query }}" placeholder="Search patients by name...">
         <button type="submit">Search</button>
     </form>
-    <ul>
-    {% for patient in patients %}
-        <li><a href="{% url 'patient_detail' patient.pk %}">{{ patient.name }}</a></li>
-    {% endfor %}
+    <ul class="patient-list">
+        {% for patient in patients %}
+            <li><a href="{% url 'patient_detail' patient.pk %}">{{ patient.name }}</a></li>
+        {% endfor %}
     </ul>
     <a href="{% url 'patient_create' %}">Add New Patient</a>
 </body>

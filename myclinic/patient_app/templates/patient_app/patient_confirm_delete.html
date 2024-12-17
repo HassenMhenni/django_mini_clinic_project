@@ -2,13 +2,23 @@
 <html>
 <head>
     <title>Confirm Delete</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <style>
+        .confirmation-message {
+            color: red;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Delete {{ patient.name }}?</h1>
+    <div class="confirmation-message">
+        <h1>Delete {{ patient.name }}?</h1>
+    </div>
     <form method="post">
         {% csrf_token %}
         <button type="submit">Confirm</button>
+        <a href="{% url 'patient_detail' patient.pk %}">Cancel</a>
     </form>
-    <a href="{% url 'patient_detail' patient.pk %}">Cancel</a>
 </body>
 </html>

@@ -2,15 +2,27 @@
 <html>
 <head>
     <title>{{ patient.name }}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <style>
+        .patient-details p {
+            margin: 5px 0;
+        }
+        .patient-details strong {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <h1>{{ patient.name }}</h1>
-    <p>Date of Birth: {{ patient.date_of_birth }}</p>
-    <p>Contact Info: {{ patient.contact_info }}</p>
-    <p>Medical History: {{ patient.basic_medical_history }}</p>
-    {% if patient.verified_by_admin %}
-        <p><strong>Verified by Admin</strong></p>
-    {% endif %}
+    <div class="patient-details">
+        <p><strong>Date of Birth:</strong> {{ patient.date_of_birth }}</p>
+        <p><strong>Contact Info:</strong> {{ patient.contact_info }}</p>
+        <p><strong>Medical History:</strong> {{ patient.basic_medical_history }}</p>
+        {% if patient.verified_by_admin %}
+            <p><strong class="verified">Verified by Admin</strong></p>
+        {% endif %}
+    </div>
     <a href="{% url 'patient_update' patient.pk %}">Edit</a> |
     <a href="{% url 'patient_delete' patient.pk %}">Delete</a> |
     <a href="{% url 'patient_list' %}">Back to List</a>
